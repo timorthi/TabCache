@@ -1,2 +1,2 @@
 # TabCache
-A session manager extension for Google Chrome.
+A session manager for Google Chrome.
