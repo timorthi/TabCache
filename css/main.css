@@ -1,0 +1,62 @@
+/* OVERRIDES */
+.fa {
+    margin-right: 15px;
+}
+
+/* END OF OVERRIDES */
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 150px;
+    background-color: #2196F3;
+    box-shadow: 1px 0px 5px rgba(50, 50, 50, 0.75);
+}
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-ul li {
+    border-bottom: 1px black;
+}
+
+.nav-ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-ul li a:hover {
+    background-color: #62AAF7;
+    cursor: pointer;
+}
+
+.nav-ul a:focus, .active {
+    background-color: #62AAF7;
+}
+
+.nav-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: inherit;
+    color: white;
+}
+
+#content-container {
+    position: relative;
+    margin-left: 160px;
+}
+
+.content {
+    display: none;
+}
