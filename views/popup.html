@@ -1,15 +1,35 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+
 <html>
     <head>
-        <script src="js/popup.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../css/shared.css">
+        <link rel="stylesheet" type="text/css" href="../css/popup.css">
+        <link rel="stylesheet" type="text/css" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
-        Hello world!
+        <div id="container">
+            <div id="banner">
+                TabCache
+            </div>
+
+            <div id="recent">
+                <span class="title">
+                    Recent Caches
+                </span>
+                <div id="recent-list">
+                </div>
+            </div>
+
+            <div id="options">
+                <button id="btn-main" class="btn-primary">
+                    <i class="fa fa-cog" aria-hidden="true"></i> DASHBOARD
+                </button>
+                </div>
+            </div>
+        </div>
     </body>
+
+    <script src="../js/popup.js"></script>
 </html>

@@ -1,0 +1,33 @@
+body {
+    min-width: 175px;
+    min-height: 300px;
+    margin: 0;
+}
+
+#container {
+    margin: 0;
+}
+
+#banner {
+    min-height: 30px;
+    margin-top: 0px;
+    padding: 5px;
+    background-color: #2196F3;
+    color: white;
+
+    text-align: center;
+    font-size: 25px;
+}
+
+#recent {
+    min-height: 210px; /* 50% of 300 */
+}
+
+.title {
+    text-align: center;
+}
+
+#options {
+    min-height: 90px; /* 40% of 300 */
+    text-align: center;
+}
