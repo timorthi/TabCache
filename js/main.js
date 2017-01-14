@@ -6,7 +6,7 @@ var contentSettings = document.getElementById("content-settings");
 var navAbout = document.getElementById("nav-about");
 var contentAbout = document.getElementById("content-about");
 
-//Display home page by default
+//Display cache tab by default
 contentCaches.style.display = "block";
 navCaches.className += "active";
 
