@@ -1,8 +1,16 @@
+/* OVERRIDES */
+
 body {
     min-width: 175px;
     min-height: 300px;
     margin: 0;
 }
+
+.fa {
+    margin-right: 5px;
+}
+
+/* END OF OVERRIDES */
 
 #container {
     margin: 0;
@@ -14,20 +22,41 @@ body {
     padding: 5px;
     background-color: #2196F3;
     color: white;
-
     text-align: center;
     font-size: 25px;
+    box-shadow: 0px 0.2px 5px rgba(50, 50, 50, 0.75);
 }
 
 #recent {
     min-height: 210px; /* 50% of 300 */
 }
 
-.title {
-    text-align: center;
-}
-
 #options {
     min-height: 90px; /* 40% of 300 */
     text-align: center;
+}
+
+.btn-primary {
+    position: relative;
+    width: 70%;
+    align: center;
+    border-radius: 3px;
+    border-width: 0;
+    outline: none;
+    font-size: 12px;
+    background-color: #2196F3;
+    color: white;
+    line-height: 25px;
+    margin: 5px;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(50, 50, 50, 0.75);
+}
+
+.btn-primary:hover {
+    background-color: #62AAF7;
+}
+
+.btn-primary:active {
+    transition: 0s;
+    background-color: #2196F3;
 }
