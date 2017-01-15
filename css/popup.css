@@ -10,6 +10,41 @@ body {
     margin-right: 5px;
 }
 
+.alertify .dialog {
+    padding: 0;
+}
+
+.alertify .dialog > * {
+    max-width: 100%;
+    padding: 0;
+}
+
+.alertify .dialog nav {
+    text-align: center;
+}
+
+.alertify-logs>* {
+    padding: 0;
+    color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
+    border-radius: 1px;
+}
+.alertify-logs>*,
+.alertify-logs>.default {
+    background: rgba(0, 0, 0, .8);
+}
+.alertify-logs>.error {
+    background: rgba(244, 67, 54, .8);
+}
+.alertify-logs>.success {
+    background: rgba(76, 175, 80, .9);
+}
+
+.alertify-logs.left, .alertify-logs:not(.right) {
+    left: 0;
+    top: 27px;
+}
+
 /* END OF OVERRIDES */
 
 #container {
