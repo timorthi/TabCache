@@ -1,10 +1,10 @@
 /* INITIALIZATION */
 var navCaches = document.getElementById("nav-caches");
-var contentCaches = document.getElementById("content-caches");
+var contentCaches = document.getElementById("caches");
 var navSettings = document.getElementById("nav-settings");
-var contentSettings = document.getElementById("content-settings");
+var contentSettings = document.getElementById("settings");
 var navAbout = document.getElementById("nav-about");
-var contentAbout = document.getElementById("content-about");
+var contentAbout = document.getElementById("about");
 
 //Display cache tab by default
 contentCaches.style.display = "block";
