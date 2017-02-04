@@ -34,16 +34,18 @@ function saveCache(cache, callback) {
     //Retrieve cache array from storage then update it
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
-        if(storage["caches"] instanceof Array) {
-            caches.push(cache);
-            chrome.storage.local.set({"caches" : caches});
-        } else {
-            console.log(storage["caches"]);
+        var isValidName = true;
+        for(var i=0; i<caches.length; i++) {
+            if(cache.name == caches[i].name) isValidName = false;
         }
-        callback("something");
+        if(isValidName) {
+            if(storage["caches"] instanceof Array) {
+                caches.push(cache);
+                chrome.storage.local.set({"caches" : caches});
+            } else {
+                console.log(storage["caches"]);
+            }
+        }
+        callback(isValidName);
     });
-}
-
-function isValidName(name) {
-
 }
