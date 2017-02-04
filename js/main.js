@@ -63,6 +63,6 @@ function generateCacheList() {
 /* SETTINGS */
 function updateStorageUsed() {
     chrome.storage.local.getBytesInUse("caches", function(bytes) {
-        document.getElementById("storageUsed").innerHTML = bytes;
+        document.getElementById("storage-used").innerHTML = bytes;
     });
 }
