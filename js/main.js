@@ -32,6 +32,7 @@ nav.onclick = function(event) {
         case "nav-caches":
             contentCaches.style.display = "block";
             navCaches.className += "active";
+            generateCacheList();
             break;
         case "nav-settings":
             contentSettings.style.display = "block";
@@ -50,6 +51,7 @@ function generateCacheList() {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
         var list = document.getElementById("cache-list");
+        list.innerHTML = "";
 
         for(var i=caches.length-1; i>=0; i--) {
             var name = caches[i].name;
