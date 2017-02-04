@@ -6,6 +6,8 @@ var contentSettings = document.getElementById("settings");
 var navAbout = document.getElementById("nav-about");
 var contentAbout = document.getElementById("about");
 
+generateCacheList();
+
 //Display cache tab by default
 contentCaches.style.display = "block";
 navCaches.className += "active";
@@ -34,10 +36,33 @@ nav.onclick = function(event) {
         case "nav-settings":
             contentSettings.style.display = "block";
             navSettings.className += "active";
+            updateStorageUsed();
             break;
         case "nav-about":
             contentAbout.style.display = "block";
             navAbout.className += "active";
             break;
     }
+}
+
+/* CACHES */
+function generateCacheList() {
+    chrome.storage.local.get("caches", function(storage) {
+        var caches = storage["caches"];
+        var list = document.getElementById("cache-list");
+
+        for(var i=caches.length-1; i>=0; i--) {
+            var name = caches[i].name;
+            var item = document.createElement('li');
+            item.appendChild(document.createTextNode(name));
+            list.appendChild(item);
+        }
+    });
+}
+
+/* SETTINGS */
+function updateStorageUsed() {
+    chrome.storage.local.getBytesInUse("caches", function(bytes) {
+        document.getElementById("storageUsed").innerHTML = bytes;
+    });
 }

@@ -12,8 +12,13 @@ document.getElementById("btn-save").onclick = function() {
         .defaultValue("My Session")
         .prompt("Give this cache a name:",
             function(cacheName, event) { //if 'ok' is selected
+                //verify cache name here
                 getCurrentTabs(function(tabs) {
-                    console.log(tabs);
+                    //Create a Cache object then store it in local storage
+                    var cache = new Cache(cacheName, tabs);
+                    saveCache(cache, function(result) {
+                        console.log(result);
+                    });
                 });
                 alertify
                     .logPosition("top left")

@@ -5,6 +5,13 @@ class Tab {
     }
 }
 
+class Cache {
+    constructor(name, tabs) {
+        this.name = name;
+        this.tabs = tabs;
+    }
+}
+
 function getCurrentTabs(callback) {
     chrome.tabs.query({windowId: chrome.windows.WINDOW_ID_CURRENT}, function(tabs) {
         var result = [];
@@ -20,6 +27,20 @@ function getCurrentTabs(callback) {
             }
         }
         callback(result);
+    });
+}
+
+function saveCache(cache, callback) {
+    //Retrieve cache array from storage then update it
+    chrome.storage.local.get("caches", function(storage) {
+        var caches = storage["caches"];
+        if(storage["caches"] instanceof Array) {
+            caches.push(cache);
+            chrome.storage.local.set({"caches" : caches});
+        } else {
+            console.log(storage["caches"]);
+        }
+        callback("something");
     });
 }
 
