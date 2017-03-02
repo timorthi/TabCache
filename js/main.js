@@ -53,11 +53,15 @@ function generateCacheList() {
         var list = document.getElementById("cache-list");
         list.innerHTML = "";
 
-        for(var i=caches.length-1; i>=0; i--) {
-            var name = caches[i].name;
-            var item = document.createElement('li');
-            item.appendChild(document.createTextNode(name));
-            list.appendChild(item);
+        if(typeof caches != "undefined") {
+            for(var i=caches.length-1; i>=0; i--) {
+                var name = caches[i].name;
+                var item = document.createElement('li');
+                item.appendChild(document.createTextNode(name));
+                list.appendChild(item);
+            }
+        } else {
+            list.innerHTML = "Oops! It looks like you don't have any caches yet.";
         }
     });
 }
