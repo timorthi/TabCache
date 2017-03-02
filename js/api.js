@@ -37,9 +37,13 @@ function saveCache(cache, callback) {
 
         //Check if the given cache name is valid
         var isValidName = true;
-        for(var i=0; i<caches.length; i++) {
-            if(cache.name == caches[i].name) isValidName = false;
+        if(typeof caches != "undefined") {
+            //If caches is initialized, check for duplicate names
+            for(var i=0; i<caches.length; i++) {
+                if(cache.name == caches[i].name) isValidName = false;
+            }
         }
+
         if(isValidName) {
             if(caches instanceof Array) {
                 caches.push(cache);
