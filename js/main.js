@@ -80,7 +80,5 @@ removeAll.onclick = function(event) {
         function() { //success
             console.log("User clicked yes. Remove caches!");
             removeAllCaches();
-        }, function() { //failure
-            console.log("User clicked cancel.");
-        });
+        }, null); //do nothing if cancel
 }
