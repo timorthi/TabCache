@@ -43,12 +43,11 @@ function saveCache(cache, callback) {
         if(isValidName) {
             if(caches instanceof Array) {
                 caches.push(cache);
-                chrome.storage.local.set({"caches" : caches});
             } else {
                 caches = [];
                 caches.push(cache);
-                chrome.storage.local.set({"caches" : caches});
             }
+            chrome.storage.local.set({"caches" : caches});
         }
         callback(isValidName);
     });
