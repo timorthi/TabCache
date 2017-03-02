@@ -5,6 +5,8 @@
 
 /* END OF OVERRIDES */
 
+/* GENERAL */
+
 .nav-container {
     position: fixed;
     top: 0;
@@ -66,3 +68,32 @@
 .content-title {
     font-size: 24px;
 }
+
+/* END GENERAL */
+
+/* SETTINGS */
+.btn-danger {
+    position: relative;
+    width: 70%;
+    align: center;
+    border-radius: 3px;
+    border-width: 0;
+    outline: none;
+    font-size: 12px;
+    background-color: #D32F2F;
+    color: white;
+    line-height: 25px;
+    margin: 5px;
+    transition: 0.3s;
+    box-shadow: 0px 2px 5px rgba(50, 50, 50, 0.75);
+}
+
+.btn-danger:hover {
+    background-color: #EF5350;
+}
+
+.btn-danger:active {
+    transition: 0s;
+    background-color: #D32F2F;
+}
+/* END SETTINGS */

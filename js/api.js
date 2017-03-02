@@ -52,3 +52,7 @@ function saveCache(cache, callback) {
         callback(isValidName);
     });
 }
+
+function removeAllCaches(callback) {
+    chrome.storage.local.remove("caches");
+}

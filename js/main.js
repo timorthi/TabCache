@@ -68,3 +68,15 @@ function updateStorageUsed() {
         document.getElementById("storage-used").innerHTML = bytes;
     });
 }
+
+var removeAll = document.getElementById("removeAll");
+removeAll.onclick = function(event) {
+    alertify
+        .confirm("Are you sure you want to clear all caches? This action cannot be undone.",
+        function() { //success
+            console.log("User clicked yes. Remove caches!");
+            removeAllCaches();
+        }, function() { //failure
+            console.log("User clicked cancel.");
+        });
+}
