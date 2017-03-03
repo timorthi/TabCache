@@ -47,6 +47,12 @@ nav.onclick = function(event) {
 }
 
 /* CACHES */
+var searchCache = document.getElementById("searchCache");
+searchCache.onkeyup = function() {
+    //search for cache algorithm here
+    console.log("keystroke registered");
+}
+
 function generateCacheList() {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
@@ -65,6 +71,7 @@ function generateCacheList() {
         }
     });
 }
+/* END CACHES */
 
 /* SETTINGS */
 function updateStorageUsed() {

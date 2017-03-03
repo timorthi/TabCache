@@ -71,6 +71,31 @@
 
 /* END GENERAL */
 
+/* CACHES */
+/* CACHES: OVERRIDES */
+.btn {
+    margin-bottom: 15px;
+}
+.btn-primary {
+    width: 35%;
+}
+/* END CACHES: OVERRIDES */
+.cache {
+    background-color: black;
+    color: white;
+}
+
+#searchCache {
+    width: 80%; /* Full-width */
+    font-size: 14px; /* Increase font-size */
+    border: 1px solid #ddd; /* Add a grey border */
+    border-radius: 3px;
+    padding: 10px 5px;
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+/* END CACHES */
+
 /* SETTINGS */
 .btn-danger {
     position: relative;
