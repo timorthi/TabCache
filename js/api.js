@@ -9,6 +9,15 @@ class Cache {
     constructor(name, tabs) {
         this.name = name;
         this.tabs = tabs;
+        this.created = Date.now();
+    }
+
+    updateCreatedDate() {
+        this.created = Date.now();
+    }
+
+    printCreatedDate() {
+        return new Date(this.created);
     }
 }
 
