@@ -12,12 +12,8 @@ class Cache {
         this.created = Date.now();
     }
 
-    updateCreatedDate() {
-        this.created = Date.now();
-    }
-
-    printCreatedDate() {
-        return new Date(this.created);
+    static getReadableCreated(cache) {
+        return new Date(cache.created);
     }
 }
 
