@@ -23,6 +23,7 @@ body {
 
 .btn-primary:hover {
     background-color: #62AAF7;
+    cursor: pointer;
 }
 
 .btn-primary:active {
