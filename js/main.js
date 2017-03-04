@@ -57,13 +57,28 @@ function generateCacheList() {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
         var list = document.getElementById("cache-list");
+        list.className = "cacheList";
         list.innerHTML = "";
 
         if(typeof caches != "undefined") {
+            //Iterate over cache storage array and generate a list item for each cache
             for(var i=caches.length-1; i>=0; i--) {
-                var name = caches[i].name;
+                var cache = caches[i];
+                var cacheName = cache.name;
                 var item = document.createElement('li');
-                item.appendChild(document.createTextNode(name));
+                item.className += "cacheListItem";
+
+                var cacheNameText = document.createElement('span');
+                cacheNameText.appendChild(document.createTextNode(cacheName));
+                cacheNameText.className += "cache-name";
+
+                var metaText = document.createElement('span');
+                metaText.appendChild(document.createTextNode("Created on: " + Cache.getReadableCreated(cache)));
+                metaText.className += "cache-meta";
+
+                item.appendChild(cacheNameText);
+                item.appendChild(metaText);
+
                 list.appendChild(item);
             }
         } else {

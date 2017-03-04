@@ -77,21 +77,42 @@
     margin-bottom: 15px;
 }
 .btn-primary {
-    width: 35%;
+    width: 15%;
+    min-width: 175px;
 }
 /* END CACHES: OVERRIDES */
-.cache {
-    background-color: black;
-    color: white;
+.cacheList {
+    padding-left: 0;
+    list-style-type: none;
+}
+.cacheListItem {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.cache-name {
+}
+
+.cache-meta {
+    float: right;
+    font-size: 13px;
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+    color: gray;
 }
 
 #searchCache {
-    width: 80%; /* Full-width */
-    font-size: 14px; /* Increase font-size */
-    border: 1px solid #ddd; /* Add a grey border */
+    width: 80%;
+    font-size: 14px;
+    border: 1px solid #ddd;
     border-radius: 3px;
     padding: 10px 5px;
-    margin-bottom: 12px; /* Add some space below the input */
+    margin-bottom: 12px;
 }
 
 /* END CACHES */
@@ -115,6 +136,7 @@
 
 .btn-danger:hover {
     background-color: #EF5350;
+    cursor: pointer;
 }
 
 .btn-danger:active {
