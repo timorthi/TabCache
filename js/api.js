@@ -65,3 +65,21 @@ function saveCache(cache, callback) {
 function removeAllCaches(callback) {
     chrome.storage.local.remove("caches");
 }
+
+function openCache(cacheName) {
+    console.log(cacheName);
+    chrome.storage.local.get("caches", function(storage) {
+        var caches = storage["caches"];
+
+        for(var i=0; i<caches.length; i++) {
+            if(cacheName == caches[i].name) {
+                var tabs = caches[i].tabs;
+                for(var j=0; j<tabs.length; j++) {
+                    chrome.tabs.create({
+                        url: LZString.decompress(tabs[j].url)
+                    });
+                }
+            }
+        }
+    });
+}

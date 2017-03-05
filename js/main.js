@@ -99,8 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var linksArray = document.getElementById("cache-list").getElementsByTagName("a");
         for(var i=0; i<linksArray.length; i++) {
             linksArray[i].onclick = function(event) {
-                var cacheName = event.target.id;
-                openCache(cacheName);
+                openCache(event.target.id);
             };
         }
     }, 100);
