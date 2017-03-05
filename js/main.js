@@ -23,7 +23,7 @@ nav.onclick = function(event) {
     //Hide all content divs
     var contentDivs =
         document.getElementById("content-container").querySelectorAll("#content-container > div");
-    for (var i = 0; i < contentDivs.length; i++) {
+    for (var i=0; i<contentDivs.length; i++) {
         contentDivs[i].style.display = 'none';
     }
 
@@ -58,18 +58,23 @@ function generateCacheList() {
         var caches = storage["caches"];
         var list = document.getElementById("cache-list");
         list.className = "cacheList";
+        list.id = "cache-list";
         list.innerHTML = "";
 
         if(typeof caches != "undefined") {
             //Iterate over cache storage array and generate a list item for each cache
             for(var i=caches.length-1; i>=0; i--) {
                 var cache = caches[i];
-                var cacheName = cache.name;
                 var item = document.createElement('li');
                 item.className += "cacheListItem";
+                item.title += "See cache details";
 
                 var cacheNameText = document.createElement('span');
-                cacheNameText.appendChild(document.createTextNode(cacheName));
+                var cacheNameLink = document.createElement('a');
+                cacheNameLink.id = cache.name;
+                cacheNameLink.title = "Open this cache in a new window";
+                cacheNameLink.appendChild(document.createTextNode(cache.name));
+                cacheNameText.appendChild(cacheNameLink);
                 cacheNameText.className += "cache-name";
 
                 var metaText = document.createElement('span');
@@ -86,6 +91,21 @@ function generateCacheList() {
         }
     });
 }
+
+//Click handlers for cache list
+document.addEventListener('DOMContentLoaded', function() {
+    //A really horrible solution to wait for dynamic injected content
+    setTimeout(function() {
+        var linksArray = document.getElementById("cache-list").getElementsByTagName("a");
+        for(var i=0; i<linksArray.length; i++) {
+            linksArray[i].onclick = function(event) {
+                var cacheName = event.target.id;
+                openCache(cacheName);
+            };
+        }
+    }, 100);
+
+});
 /* END CACHES */
 
 /* SETTINGS */
@@ -104,3 +124,4 @@ removeAll.onclick = function(event) {
             removeAllCaches();
         }, null); //do nothing if cancel
 }
+/* END SETTINGS */

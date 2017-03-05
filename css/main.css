@@ -59,6 +59,7 @@
     margin-left: 175px;
     margin-top: 30px;
     margin-right: 25px;
+    overflow-x: scroll;
 }
 
 .content {
@@ -81,6 +82,15 @@
     min-width: 175px;
 }
 /* END CACHES: OVERRIDES */
+#searchCache {
+    width: 80%;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px 5px;
+    margin-bottom: 12px;
+}
+
 .cacheList {
     padding-left: 0;
     list-style-type: none;
@@ -92,28 +102,26 @@
     font-size: 16px;
     margin-bottom: 10px;
     background-color: white;
+    min-width: 500px;
 }
 
-.cache-name {
+.cacheListItem:hover {
+    cursor: pointer;
+}
+
+.cache-name > a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .cache-meta {
     float: right;
     font-size: 13px;
     font-style: italic;
-    padding: 0;
     margin: 0;
     color: gray;
 }
 
-#searchCache {
-    width: 80%;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    padding: 10px 5px;
-    margin-bottom: 12px;
-}
 
 /* END CACHES */
 
