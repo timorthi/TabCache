@@ -67,7 +67,6 @@ function removeAllCaches(callback) {
 }
 
 function openCache(cacheName) {
-    console.log(cacheName);
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
 
