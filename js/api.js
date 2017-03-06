@@ -72,10 +72,10 @@ function getCache(cacheName, callback) {
         for(var i=0; i<caches.length; i++) {
             if(cacheName == caches[i].name) {
                 callback(caches[i]);
-            } else {
-                callback(false);
+                return;
             }
         }
+        callback(false); //If failed to find cache
     });
 }
 
