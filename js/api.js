@@ -66,18 +66,27 @@ function removeAllCaches(callback) {
     chrome.storage.local.remove("caches");
 }
 
-function openCache(cacheName) {
+function getCache(cacheName, callback) {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
-
         for(var i=0; i<caches.length; i++) {
             if(cacheName == caches[i].name) {
-                var tabs = caches[i].tabs;
-                for(var j=0; j<tabs.length; j++) {
-                    chrome.tabs.create({
-                        url: LZString.decompress(tabs[j].url)
-                    });
-                }
+                callback(caches[i]);
+            } else {
+                callback(false);
+            }
+        }
+    });
+}
+
+function openCache(cacheName) {
+    getCache(cacheName, function(cache) {
+        if(cache) {
+            var tabs = cache.tabs;
+            for(var i=0; i<tabs.length; i++) {
+                chrome.tabs.create({
+                    url: LZString.decompress(tabs[i].url)
+                });
             }
         }
     });
