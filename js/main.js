@@ -93,18 +93,13 @@ function generateCacheList() {
 }
 
 //Click handlers for cache list
-document.addEventListener('DOMContentLoaded', function() {
-    //A really horrible solution to wait for dynamic injected content
-    setTimeout(function() {
-        var linksArray = document.getElementById("cache-list").getElementsByTagName("a");
-        for(var i=0; i<linksArray.length; i++) {
-            linksArray[i].onclick = function(event) {
-                openCache(event.target.id);
-            };
-        }
-    }, 100);
-
-});
+$(function() {
+    $("#cache-list a").each(function() {
+        $(this).on('click', function() {
+            openCache(this.id);
+        });
+    });
+})
 /* END CACHES */
 
 /* SETTINGS */
