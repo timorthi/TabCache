@@ -57,6 +57,7 @@ function generateCacheList() {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
         var cacheList = $("#cache-list");
+        cacheList.html("");
 
         if(typeof caches == "undefined") {
             cacheList.html("Oops! It looks like you don't have any caches yet.");
@@ -78,6 +79,11 @@ function generateCacheList() {
                     "id": cache.name,
                     "class": "cache-link",
                     "title": "Open this cache"
+                });
+                cacheLink.featherlight({
+                    afterOpen: function(event) {
+                        $.featherlight.current().close();
+                    }
                 });
 
                 var metaText = $("<span>Created on: " + Cache.getReadableCreated(cache) + "</span>");
