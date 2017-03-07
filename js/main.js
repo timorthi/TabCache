@@ -56,44 +56,46 @@ searchCache.onkeyup = function() {
 function generateCacheList() {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
-        var list = document.getElementById("cache-list");
-        list.className = "cacheList";
-        list.id = "cache-list";
-        list.innerHTML = "";
+        var cacheList = $("#cache-list");
 
-        if(typeof caches != "undefined") {
+        if(typeof caches == "undefined") {
+            cacheList.html("Oops! It looks like you don't have any caches yet.");
+        } else {
             //Iterate over cache storage array and generate a list item for each cache
             for(var i=caches.length-1; i>=0; i--) {
                 var cache = caches[i];
-                var item = document.createElement('li');
-                item.className += "cacheListItem";
-                item.title += "See cache details";
 
-                var cacheNameText = document.createElement('span');
-                var cacheNameLink = document.createElement('a');
-                cacheNameLink.id = cache.name;
-                cacheNameLink.title = "Open this cache in a new window";
-                cacheNameLink.appendChild(document.createTextNode(cache.name));
-                cacheNameText.appendChild(cacheNameLink);
-                cacheNameText.className += "cache-name";
+                var modalId = "#modal-" + cache.name;
+                var listItem = $("<li></li>");
+                listItem.attr({
+                    "class": "cacheListItem",
+                    "title": "See cache details",
+                    "data-featherlight": modalId
+                });
 
-                var metaText = document.createElement('span');
-                metaText.appendChild(document.createTextNode("Created on: " + Cache.getReadableCreated(cache)));
-                metaText.className += "cache-meta";
+                var cacheLink = $("<a>" + cache.name + "</a>");
+                cacheLink.attr({
+                    "id": cache.name,
+                    "class": "cache-link",
+                    "title": "Open this cache"
+                });
 
-                item.appendChild(cacheNameText);
-                item.appendChild(metaText);
+                var metaText = $("<span>Created on: " + Cache.getReadableCreated(cache) + "</span>");
+                metaText.attr({
+                    "class": "cache-meta"
+                });
 
-                list.appendChild(item);
+                listItem.append(cacheLink);
+                listItem.append(metaText);
+                cacheList.append(listItem);
             }
-        } else {
-            list.innerHTML = "Oops! It looks like you don't have any caches yet.";
         }
     });
 }
 
 //Click handlers for cache list
 $(function() {
+    //Click on hyperlink to open cache
     $("#cache-list a").each(function() {
         $(this).on('click', function() {
             openCache(this.id);

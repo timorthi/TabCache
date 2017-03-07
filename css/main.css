@@ -109,7 +109,7 @@
     cursor: pointer;
 }
 
-.cache-name > a:hover {
+.cache-link:hover {
     text-decoration: underline;
     cursor: pointer;
 }
