@@ -99,9 +99,8 @@ function generateCacheList() {
     });
 }
 
-//Click handlers for cache list
 $(function() {
-    //Click on hyperlink to open cache
+    //Click handler for hyperlinks on cache list
     $("#cache-list a").each(function() {
         $(this).on('click', function() {
             openCache(this.id);
