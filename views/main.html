@@ -5,6 +5,7 @@
         <title>Dashboard - TabCache</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../assets/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/featherlight-1.7.1/featherlight.min.css">
         <link rel="stylesheet" type="text/css" href="../css/shared.css">
         <link rel="stylesheet" type="text/css" href="../css/main.css">
     </head>
@@ -34,7 +35,7 @@
                             <br>
                             <i class="fa fa-search" aria-hidden="true"></i><input type="text" id="searchCache" placeholder="Search for a cache..">
                         </div>
-                        <ul id="cache-list">
+                        <ul id="cache-list" class="cacheList">
                         </ul>
                     </div>
                 </div>
@@ -62,6 +63,8 @@
         </div>
     </body>
 
+    <script src="../assets/jquery-3.1.1.min.js"></script>
+    <script src="../assets/featherlight-1.7.1/featherlight.min.js"></script>
     <script src="../assets/alertify/alertify.js"></script>
     <script src="../assets/lz-string.min.js"></script>
     <script src="../js/api.js"></script>
