@@ -122,6 +122,17 @@
     color: gray;
 }
 
+.lightbox {
+    display: none;
+}
+
+.lightbox h1 {
+    margin-bottom: 0;
+}
+
+.lightbox > .featherlight-content {
+    max-width: 750px;
+}
 
 /* END CACHES */
 
