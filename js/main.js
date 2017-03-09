@@ -100,6 +100,8 @@ function generateCacheList() {
 }
 
 $(function() {
+    $.featherlight.autoBind;
+
     //Click handler for hyperlinks on cache list
     $("#cache-list a").each(function() {
         $(this).on('click', function() {
