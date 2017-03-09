@@ -53,6 +53,16 @@ searchCache.onkeyup = function() {
     console.log("keystroke registered");
 }
 
+function generateModal(cacheName, callback) {
+    var modalId = "modal-" + cacheName.replace(/ /g,"-");
+    var container = $("<div><h1>" + cacheName + "</h1></div>");
+    container.attr({
+        "id": modalId,
+        "class": "lightbox"
+    });
+    callback(container);
+}
+
 function generateCacheList() {
     chrome.storage.local.get("caches", function(storage) {
         var caches = storage["caches"];
@@ -66,7 +76,7 @@ function generateCacheList() {
             for(var i=caches.length-1; i>=0; i--) {
                 var cache = caches[i];
 
-                var modalId = "#modal-" + cache.name;
+                var modalId = "#modal-" + cache.name.replace(/ /g,"-");
                 var listItem = $("<li></li>");
                 listItem.attr({
                     "class": "cacheListItem",
@@ -76,7 +86,7 @@ function generateCacheList() {
 
                 var cacheLink = $("<a>" + cache.name + "</a>");
                 cacheLink.attr({
-                    "id": cache.name,
+                    "id": cache.name.replace(/ /g,"-"),
                     "class": "cache-link",
                     "title": "Open this cache"
                 });
@@ -89,6 +99,10 @@ function generateCacheList() {
                 var metaText = $("<span>Created on: " + Cache.getReadableCreated(cache) + "</span>");
                 metaText.attr({
                     "class": "cache-meta"
+                });
+
+                generateModal(cache.name, function(modal) {
+                    $("body").append(modal);
                 });
 
                 listItem.append(cacheLink);
